@@ -1,4 +1,8 @@
+"""
 
+Working with mathematical problems to work on logic building skills.
+
+"""
 import math
 
 # Count digits

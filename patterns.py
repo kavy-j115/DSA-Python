@@ -1,4 +1,8 @@
+"""
 
+The first stepping stone of DSA has always been patterns to understand loops and thinking approach while looking at a problem.
+
+"""
 while True:
     rows = int(input("Ënter number of rows to display: "))
 
