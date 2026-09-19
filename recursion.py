@@ -7,10 +7,6 @@ Stack Overflow: When the recursion uses more memory than it was allocated.
 
 Recursion Tree: Representation of the recursion in a tree form.
 
-Important: Make sure to understand when the work is done; while going up in the stack or coming back down? It is very important.
-
-Backtracking means that the function is executed while returning when the base condition of a recursion is satisfied.
-
 """
 
 #BASIC RECURSION PROBLEMS
@@ -67,6 +63,14 @@ Backtracking means that the function is executed while returning when the base c
 
 #     print_count(n)
 
+"""
+
+Important: Make sure to understand when the work is done; while going up in the stack or coming back down? It is very important.
+
+Backtracking means that the function is executed while returning when the base condition of a recursion is satisfied.
+
+"""
+
 #Problem 4: Print from 1 to N linearly using backtracking
 
 # def print_count(n):
@@ -100,5 +104,68 @@ Backtracking means that the function is executed while returning when the base c
 
 #     print_count(1, n)
 
+#Problem 6: Sum of N Numbers
+
+"""Parametrised Recursion: The result is passed as a parameter for the rcursive call."""
+
+# def summation_parameterized(n, total):
+#     if n<1:
+#         print(total)
+#         return
+    
+#     summation_parameterized(n-1, total+n)
+
+"""
+Functional Recursion:
+Each recursive call returns a value to the previous call, and each call combines that returned value with its own value to form the final result while backtracking.
+"""
+
+# def summation_functional(n):
+
+#     if n<1:
+#         return 0
+    
+#     return n + summation_functional(n-1)
+
+# def main():
+#     n = int(input("Enter number: "))
+
+    
+#     print("Using functional recursion")
+#     summation_parameterized(n, 0) # Parameterized
+
+#     print("Using parametrised recursion")
+#     total = summation_functional(n) # Fucntional
+#     print(total)
+
 # if __name__ == "__main__":
 #     main()
+
+#Problem 7: Factorial of a number
+
+def parameterized_factorial(n, factorial):
+
+    if n==0:
+        print(factorial)
+        return
+
+    parameterized_factorial(n-1, factorial*n)
+
+def functional_factorial(n):
+    if n==0:
+        return 1
+
+    return n*functional_factorial(n-1)
+
+def main():
+    num = int(input("Enter the number you want to calculate the factorial for: "))
+
+    print("Parameterized Factorial")
+    parameterized_factorial(num, 1)
+
+    print("Functional Factorial")
+    factorial = functional_factorial(num)
+    print(factorial)
+
+if __name__ == "__main__":
+    main()
