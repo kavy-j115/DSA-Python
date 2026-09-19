@@ -143,29 +143,103 @@ Each recursive call returns a value to the previous call, and each call combines
 
 #Problem 7: Factorial of a number
 
-def parameterized_factorial(n, factorial):
+# def parameterized_factorial(n, factorial):
 
-    if n==0:
-        print(factorial)
-        return
+#     if n==0:
+#         print(factorial)
+#         return
 
-    parameterized_factorial(n-1, factorial*n)
+#     parameterized_factorial(n-1, factorial*n)
 
-def functional_factorial(n):
-    if n==0:
-        return 1
+# def functional_factorial(n):
+#     if n==0:
+#         return 1
 
-    return n*functional_factorial(n-1)
+#     return n*functional_factorial(n-1)
+
+# def main():
+#     num = int(input("Enter the number you want to calculate the factorial for: "))
+
+#     print("Parameterized Factorial")
+#     parameterized_factorial(num, 1)
+
+#     print("Functional Factorial")
+#     factorial = functional_factorial(num)
+#     print(factorial)
+
+
+#Problem 8: Reverse an array using recursion
+
+# def parameterized_newlist(arr, index, rev):
+#     if index<0:
+#         print(rev)
+#         return
+
+#     rev.append(arr[index])
+
+#     parameterized_newlist(arr, index-1, rev) 
+
+# def parameterized_swapping(arr, left, right):
+#     if left>=right:
+#         print(arr)
+#         return
+
+#     arr[left], arr[right] = arr[right], arr[left]
+
+#     parameterized_swapping(arr, left+1, right-1)
+
+# def functional_reverse(arr, index):
+#     if index==0:
+#         return []
+
+#     return [arr[index-1]] + functional_reverse(arr, index-1)
+
+# def main():
+#     arr_parameterized = [1,2,3,4,5]
+#     rev = []
+#     #Reversing using parameterized recursion
+
+#     parameterized_newlist(arr_parameterized, len(arr_parameterized)-1, rev)
+#     parameterized_swapping(arr_parameterized, 0, len(arr_parameterized)-1)
+
+#     arr_functional = arr_parameterized # Reversing the reversed array to original using funstional recursion
+
+#     functional_reversed_list  = functional_reverse(arr_functional, len(arr_functional))
+#     print(functional_reversed_list)
+
+#Problem 9: Check if a string is palindrome or not
+
+# def palindrome_fucntional(string, index):
+#     if index == 0:
+#         return ""
+
+#     return string[index-1] + palindrome_fucntional(string, index-1)
+
+def palindrome_parameterized(string, index, rev_string):
+    if index == 0:
+        return rev_string
+
+    rev_string = rev_string + string[index-1] 
+
+    return palindrome_parameterized(string, index-1, rev_string)
 
 def main():
-    num = int(input("Enter the number you want to calculate the factorial for: "))
+    input_string = input("enter string: ")
 
-    print("Parameterized Factorial")
-    parameterized_factorial(num, 1)
+    # reversed_string = palindrome_fucntional(input_string, len(input_string))
 
-    print("Functional Factorial")
-    factorial = functional_factorial(num)
-    print(factorial)
+    reverse_string = palindrome_parameterized(input_string, len(input_string), rev_string="")
+
+
+    if input_string == reverse_string:
+        print("palindrome")
+    else:
+        print("not palindrome")
+
+    # if input_string == reversed_string:
+    #     print("palindrome")
+    # else:
+    #     print("not palindrome.")
 
 if __name__ == "__main__":
     main()
