@@ -215,31 +215,55 @@ Each recursive call returns a value to the previous call, and each call combines
 
 #     return string[index-1] + palindrome_fucntional(string, index-1)
 
-def palindrome_parameterized(string, index, rev_string):
-    if index == 0:
-        return rev_string
+# def palindrome_parameterized(string, index, rev_string):
+#     if index == 0:
+#         return rev_string
 
-    rev_string = rev_string + string[index-1] 
+#     rev_string = rev_string + string[index-1] 
 
-    return palindrome_parameterized(string, index-1, rev_string)
+#     return palindrome_parameterized(string, index-1, rev_string)
+
+def palindrome(i, string):
+    if i >= (len(string)//2):
+        return True
+    
+    if string[i] != string[len(string)-i-1]:
+        return False
+
+    return palindrome(i+1, string)
 
 def main():
     input_string = input("enter string: ")
 
     # reversed_string = palindrome_fucntional(input_string, len(input_string))
 
-    reverse_string = palindrome_parameterized(input_string, len(input_string), rev_string="")
-
-
-    if input_string == reverse_string:
-        print("palindrome")
-    else:
-        print("not palindrome")
+    # reversed_string = palindrome_parameterized(input_string, len(input_string), rev_string="")
 
     # if input_string == reversed_string:
     #     print("palindrome")
     # else:
     #     print("not palindrome.")
+    
+    if palindrome(0, input_string):
+        print("palindrome")
+    else:
+        print("not palindrome")
+
+
+"""Multiple Recursion Calls"""
+
+def fibonacci(n):
+    if n<=1:
+        return n
+
+    return fibonacci(n-1) + fibonacci(n-2)
+
+def main():
+    num = int(input("Enter num: "))
+
+    n_fibonnaci = fibonacci(0, num)
+
+    print(n_fibonnaci)
 
 if __name__ == "__main__":
     main()
