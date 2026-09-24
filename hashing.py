@@ -89,41 +89,39 @@ Mapping is more efficient for hashing since it does use extra memory for numbers
 
 #Find highest and lowest frequencies
 
-def get_input():
+# def get_input():
 
-    string = input("Enter your string: ")
+#     string = input("Enter your string: ")
 
-    return string
+#     return string
 
-def precomputation(input_string):
-    
-    frequencies = {}
-    for char in input_string:
-        frequencies[char] = frequencies.get(char, 0)+1
+# def precomputation(input_string):
 
-    return frequencies
+#     frequencies = {}
+#     for char in input_string:
+#         frequencies[char] = frequencies.get(char, 0)+1
 
-def search_frequency(frequencies, search_key):
+#     return frequencies
 
-    if search_key in frequencies:
-        frequency = frequencies[search_key]
-        print(f"{search_key}: {frequency}")
-    else:
-        print("Not exists")
+# def search_frequency(frequencies, search_key):
 
-def main():
-    input_string = get_input()
+#     if search_key in frequencies:
+#         frequency = frequencies[search_key]
+#         print(f"{search_key}: {frequency}")
+#     else:
+#         print("Not exists")
 
-    freq = precomputation(input_string)
+# def main():
+#     input_string = get_input()
 
-    count = int(input("How many characters do you want to count?"))
-    while count>0:
-        search_key = input("Enter character to count: ")
-        search_frequency(freq, search_key)
+#     freq = precomputation(input_string)
 
-        count -= 1
+#     count = int(input("How many characters do you want to count?"))
+#     while count>0:
+#         search_key = input("Enter character to count: ")
+#         search_frequency(freq, search_key)
 
-if  __name__ == "__main__":
-    main() 
+#         count -= 1
 
-   
+# if  __name__ == "__main__":
+#     main() 
